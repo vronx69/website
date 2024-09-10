@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #login-container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        input[type="password"] {
+            padding: 10px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+        }
+        #protected-content {
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div id="login-container">
+    <h2>Ievadiet paroli</h2>
+    <input type="password" id="passwordInput" placeholder="Ievadiet paroli">
+    <br>
+    <button onclick="checkPassword()">Apstiprināt</button>
+    <p id="error-message" style="color: red;"></p>
+</div>
+
+<div id="protected-content">
+    <!-- Rediģējiet šo sadaļu, lai parādītu savu tekstu -->
+    <h2>Laipni lūdzam manā slapenajā mājaslapā!</h2>
+    <p>Mani sauc Daniels un es esmu no Liepājas un šī ir mana projekta mājaslapa. Ceru ka tev patīk!</p>
+    <p>Es eju 5. klasē un mana mīļākā krāsa ir Vieoleta un Zila, Mans e-pasts ir daniels@vronx.net. Un kā tu uzminēji paroli?? Beet jauku dienu! :)</p>
+    <!-- Rediģējamās sadaļas beigas -->
+</div>
+
+<script>
+    function checkPassword() {
+        const password = document.getElementById('passwordInput').value;
+        const correctPassword = "ozolins123";
+        const errorMessage = document.getElementById('error-message');
+        
+        if (password === correctPassword) {
+            document.getElementById('login-container').style.display = 'none';
+            document.getElementById('protected-content').style.display = 'block';
+        } else {
+            errorMessage.textContent = "Nepareiza parole. Mēģiniet vēlreiz.";
+        }
+    }
+</script>
+
+</body>
+</html>
